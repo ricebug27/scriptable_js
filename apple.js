@@ -22,10 +22,10 @@ Script.complete();
 
 async function createWidget(data,model) {
     let widget = new ListWidget();//先创建ListWidget对象
-    widget.backgroundColor = Color.dynamic(
-        new Color('FFF8EE'),
-        new Color('000000'),
-    );
+    // widget.backgroundColor = Color.dynamic(
+    //     new Color('FFF8EE'),
+    //     new Color('000000'),
+    // );
     widget.refreshAfterDate = new Date(Date.now()+1000*60*5)//这个是指定多长时间后台重新执行一遍脚本，当前是设置每5分钟刷新一次，至于刷新的速率很大程度上取决于操作系统，如你的电量、内存、网络环境​等。
     widget.setPadding(20,10,20,10)//设置好组件与其他应用在桌面上的边距
     //创建头部展示区域
@@ -35,7 +35,7 @@ async function createWidget(data,model) {
     headerIcon.imageSize = new Size(22,22);
     header.addSpacer(2);
     const headerTitle = header.addText("苹果官翻MacbookPro监控");
-    headerTitle.textColor = new Color('323673');
+    headerTitle.textColor = new Color('#0080FF');
     headerTitle.font = Font.boldSystemFont(18);
     //当组件设置为2X2时，仅能显示Logo，直接返回头部图标就可以了
     if(config.widgetFamily === 'small') {
@@ -55,7 +55,7 @@ async function createWidget(data,model) {
         const rowText = row.addText(_title);
         rowText.font = Font.boldSystemFont(14);
         rowText.lineLimit = 1;
-        rowText.textColor = new Color('000000');
+        // rowText.textColor = new Color('000000');
         row.url = data[i].href;
     }
     for(let i=0;i<data.length;i++){
